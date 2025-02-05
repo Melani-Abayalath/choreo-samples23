@@ -1,1 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<synapse xmlns="http://ws.apache.org/ns/synapse">
+
+    <!-- Define the Message Processor with Static and Dynamic Parameters -->
+    <messageProcessor class="org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor"
+                       name="HelloWorld_MessageProcessor" 
+                       targetEndpoint="HelloWorld_Endpoint">
+        
+        <!-- Static Parameter -->
+        <parameter name="client.retry.interval">1000</parameter>
+
+        <!-- Dynamic Parameter -->
+        <parameter name="cronExpression">{sys:CRON_PROJ_FUNDING}</parameter>
+        
+        <!-- Optional Additional Parameters -->
+        <parameter name="max.delivery.attempts">3</parameter>
+        <parameter name="interval">5000</parameter>
+        <parameter name="is.active">true</parameter>
+    </messageProcessor>
+
+    <!-- Define the target endpoint -->
+    <endpoint name="HelloWorld_Endpoint" xmlns="http://ws.apache.org/ns/synapse">
+        <address uri="http://example.com/your-endpoint"/>
+    </endpoint>
+
+</synapse>
 
