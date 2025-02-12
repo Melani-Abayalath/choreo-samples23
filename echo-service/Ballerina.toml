@@ -4,5 +4,11 @@ name = "echo_service"
 distribution = "2201.10.3"
 version = "3.1.1"
 
+[dependencies]
+"ballerinax/aws.s3" = "3.4.0"       # AWS S3 Connector maintained by WSO2
+"ballerina/http" = "2.12.4"    # HTTP module for creating services
+"ballerina/log" = "2.10.0"     # Logging module
+"ballerina/runtime" = "1.5.0"  # Runtime module to fetch Ballerina version
+
 [build-options]
 observabilityIncluded = true
